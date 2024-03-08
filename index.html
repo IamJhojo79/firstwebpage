@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Joyce's Web</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f8f8;
+            background-image: url('bg.png');
+            background-size: auto;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+}
+h1 {
+    text-align: center;
+}
+
+.leaves {
+            position: relative;
+            top: 0;
+            left: 50%;
+        }
+
+        .leaf {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff47c8;
+            border-radius: 50%;
+            animation: fall 5s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translate(-5000%, -20%);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, 110%);
+                opacity: 0;
+            }
+        }
+
+        .shape {
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            animation: scaleShape 5s ease-in-out infinite;
+        }
+
+        @keyframes scaleShape {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(0);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+            animation: moveText 2s infinite;
+        }
+
+        .card p {
+            margin-top: 10px;
+            color: #000000;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            animation: pulse 1s infinite alternate;
+        }
+
+        .button-container button:last-child {
+            margin-right: 0;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        // JavaScript code for making the webpage more interactive
+        document.addEventListener('DOMContentLoaded', function () {
+            // Function to change the text color of the header on mouseover
+            document.querySelector('header').addEventListener('mouseover', function () {
+                this.style.color = getRandomColor();
+            });
+
+            // Function to change the text color of the header back to white on mouseout
+            document.querySelector('header').addEventListener('mouseout', function () {
+                this.style.color = '#fff';
+            });
+
+            // Function to generate a random color
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+        });
+    </script>
+
+<body>
+    <header>
+        <h1>Welcome to Joyce's Web</h1>
+        <div class="shape"></div>
+    </header>
+        <div class="leaves">
+            <!-- JavaScript will dynamically create and append leaves here -->
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                function createLeaf() {
+                    const leaf = document.createElement('div');
+                    leaf.classList.add('leaf');
+                    leaf.style.left = `${Math.random() * 100}%`;
+                    document.querySelector('.leaves').appendChild(leaf);
+                }
+    
+                // Create leaves at regular intervals
+                setInterval(createLeaf, 1000);
+    
+                // Optionally, you can remove existing leaves after a certain time
+                setTimeout(() => {
+                    const leaves = document.querySelectorAll('.leaf');
+                    leaves.forEach(leaf => leaf.remove());
+                }, 10000); 
+            });
+        </script>
+    </div>
+    <main>
+        <div class="container">
+            <div class="card">
+                <p>Hi!
+                    <br>Selamat datang di halaman web saya.</p> 
+                <h2>Follow my GitHub, and let's learn together.</h2>
+                <p>Press the button
+                    <div class="button-container">
+                        <a href="https://github.com/IamJhojo79" target="_blank"><button onclick="alert('Button Pressed!')">Hap</button></a>
+                    </div>
+                </p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        &copy; Joyce_Dawa's Web
+    </footer>
+</body>
+</html>
+
